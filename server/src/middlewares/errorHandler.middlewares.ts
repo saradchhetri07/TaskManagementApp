@@ -1,4 +1,4 @@
-import { HTTPStatusCodes } from "http-status-code";
+import { StatusCodes as HTTPStatusCodes } from "http-status-codes";
 import { Request } from "../interfaces/auth.interface";
 import { NextFunction, Response } from "express";
 import { UnauthenticatedError } from "../error/UnauthorizedError";
@@ -36,7 +36,6 @@ const genericErrorHandler = (
   }
 
   if (error instanceof BadRequestError) {
-    console.log("didnt come to badrequest error");
     return res.status(HTTPStatusCodes.BAD_REQUEST).json({
       message: error.message,
     });

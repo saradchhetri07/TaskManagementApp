@@ -1,6 +1,5 @@
 import express from "express";
 import routers from "./routes/index.routes";
-import helmet from "helmet";
 import rateLimiter from "express-rate-limit";
 import config from "./config";
 import { genericErrorHandler } from "./middlewares/errorHandler.middlewares";
@@ -13,9 +12,9 @@ const limiter = rateLimiter({
   message: "Too many requests",
 });
 
-app.use(helmet);
-app.use(limiter);
+app.use(express.json());
 app.use(routers);
+
 app.use(genericErrorHandler);
 
 app.listen(config.PORT, () => {
