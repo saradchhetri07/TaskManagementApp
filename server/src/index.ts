@@ -3,6 +3,7 @@ import routers from "./routes/index.routes";
 import helmet from "helmet";
 import rateLimiter from "express-rate-limit";
 import config from "./config";
+import { genericErrorHandler } from "./middlewares/errorHandler.middlewares";
 
 const app = express();
 
@@ -15,6 +16,7 @@ const limiter = rateLimiter({
 app.use(helmet);
 app.use(limiter);
 app.use(routers);
+app.use(genericErrorHandler);
 
 app.listen(config.PORT, () => {
   console.log(`Server running on port ${config.PORT}`);
