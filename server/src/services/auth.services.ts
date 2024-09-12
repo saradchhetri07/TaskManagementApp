@@ -6,8 +6,6 @@ import * as UserServices from "../services/user.services";
 export const getUserByEmail = async (email: string, routes: string) => {
   const existingUser = await UserServices.getUserByEmail(email);
 
-  console.log(`returned back at auth service with existing user`, existingUser);
-
   if (!existingUser && routes === "login") {
     throw new NotFoundError("user with that email doesn't exist");
   }
@@ -18,7 +16,5 @@ export const getUserByEmail = async (email: string, routes: string) => {
 };
 
 export const signUp = (body: Omit<User, "id">) => {
-  console.log(`came inside auth service`);
-
   return UserServices.signUp(body);
 };

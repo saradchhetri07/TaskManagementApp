@@ -1,0 +1,40 @@
+services:
+  frontend:
+    build: ./client
+    container_name: frontend-task-management
+    ports:
+      - 3000:80
+    environment:
+      - TZ="Asia/Katmandu"
+    depends_on:
+      backend:
+        condition: service_started
+        restart: true
+
+  backend:
+    build: ./server
+    container_name: backend-task-management
+    ports:
+      - 8000:3000
+    env_file: ./server/.env
+    environment:
+      - TZ="Asia/Katmandu"
+    depends_on:
+      database:
+          condition: service_started
+          restart: true
+
+  database:
+    image: postgres:16.3-alpine3.19
+    container_name: database-task-management
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=taskmanagementapp
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

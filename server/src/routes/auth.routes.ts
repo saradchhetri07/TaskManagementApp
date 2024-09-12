@@ -5,16 +5,10 @@ import {
   loginUserBodySchema,
   createUserBodySchema,
 } from "../schema/user.schema";
-import { requestWrapper } from "../utils/requestWrapper.utils";
-import { genericErrorHandler } from "../middlewares/errorHandler.middlewares";
 
 const router = express.Router();
 
 router.post("/signup", validateReqBody(createUserBodySchema), signUp);
-router.post(
-  "/login",
-  validateReqBody(loginUserBodySchema),
-  requestWrapper(login)
-);
+router.post("/login", validateReqBody(loginUserBodySchema), login);
 
 export default router;

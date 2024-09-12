@@ -14,7 +14,7 @@ export async function up(knex: Knex): Promise<void> {
 
     table.string("name").notNullable(); // or .nullable() depending on your needs
     table.text("description").nullable(); // using text for potentially long descriptions
-    table.boolean("status").defaultTo(true); // default value can be adjusted based on your requirements
+    table.boolean("status").nullable().defaultTo(false); // default value can be adjusted based on your requirements
     table.timestamp("timeStamp").notNullable().defaultTo(knex.raw("now()"));
 
     table
