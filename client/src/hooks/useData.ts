@@ -22,7 +22,6 @@ const useData = <T>(endpoint: string) => {
       },
     })
       .then((res) => {
-        console.log(`gotten todos is`, res.data);
         setData(res.data.data);
         setisLoading(false);
       })
