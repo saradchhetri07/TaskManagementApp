@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FieldValues } from "react-hook-form";
+import "./auth.css";
 import { useAuth } from "../../contexts/AuthContext";
 import AuthForm from "../../components/common/AuthForm";
 import { ToastContainer } from "react-toastify";
@@ -12,7 +13,7 @@ const Login = () => {
   };
 
   return (
-    <div className="login_form card" style={{ width: "50vw", height: "70vh" }}>
+    <div className="login_form card">
       <div
         className="form_heading"
         style={{

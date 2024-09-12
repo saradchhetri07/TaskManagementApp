@@ -53,7 +53,11 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
         navigate("/Home");
       })
       .catch((error) => {
-        toast.error(error.response.data.message);
+        if (error.response) {
+          toast.error(error.response.data.message);
+        } else {
+          toast.error(error.message);
+        }
       });
   };
 
@@ -64,8 +68,10 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
         navigate("/login");
       })
       .catch((error) => {
-        if (error.response?.status === 400) {
+        if (error.response) {
           toast.error(error.response.data.message);
+        } else {
+          toast.error(error.message);
         }
       });
   };

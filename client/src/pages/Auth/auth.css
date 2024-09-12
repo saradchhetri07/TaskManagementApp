@@ -1,0 +1,14 @@
+/* Add this to your CSS file or a style tag */
+.login_form,
+.signup_form {
+  width: 50vw;
+  height: 70vh;
+}
+
+@media only screen and (max-width: 500px) {
+  .login_form,
+  .signup_form {
+    width: 80vw;
+    height: 80vh;
+  }
+}

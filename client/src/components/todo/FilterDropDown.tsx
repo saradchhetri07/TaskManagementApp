@@ -7,7 +7,7 @@ export interface Props {
 
 const FilterDropDown = ({ selectedOption, handleChange }: Props) => {
   return (
-    <div className="container mt-3">
+    <div className="container mt-3" style={{ marginBottom: "20px" }}>
       <h2>Filter By</h2>
       <div className="form-group">
         <select
