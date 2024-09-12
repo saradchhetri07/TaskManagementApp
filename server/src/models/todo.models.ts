@@ -9,7 +9,6 @@ export class TodoModel extends BaseModel {
         description: todo.description,
         created_by: parseInt(id, 10),
       };
-      console.log(todoToCreate);
 
       await this.queryBuilder().insert(todoToCreate).table("todos");
 

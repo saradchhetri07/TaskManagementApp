@@ -9,8 +9,8 @@ const app = express();
 
 app.get("/", (req, res) => {
   return res.status(200).json({
-    message: "hello world"
-  })
+    message: "hello world",
+  });
 });
 
 app.use(cors());
@@ -18,7 +18,3 @@ app.use(express.json());
 app.use(routers);
 
 app.use(genericErrorHandler);
-
-app.listen(config.PORT, () => {
-  console.log(`Server running on port ${config.PORT}`);
-});

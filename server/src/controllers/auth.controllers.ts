@@ -14,7 +14,6 @@ export const login = async (
 ) => {
   try {
     const { body } = req;
-    console.log(`came to ${body}`);
 
     //retrieving email if it exists
     const existingUser = await AuthServices.getUserByEmail(body.email, "login");
