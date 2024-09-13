@@ -18,3 +18,7 @@ app.use(express.json());
 app.use(routers);
 
 app.use(genericErrorHandler);
+
+app.listen(config.PORT, () => {
+  console.log(`listening to port ${config.PORT}`);
+});
